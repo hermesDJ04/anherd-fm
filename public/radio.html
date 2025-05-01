@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Now Playing - Anherd FM</title>
+  <link rel="stylesheet" href="/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom, #e66400, #000);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: white;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="playlist-page">
+
+  <!-- Header -->
+  <header class="playlist-header">
+    <a href="/index.html">
+      <img src="/images/barlogo.png" alt="Anherd FM Logo" class="playlist-logo">
+    </a>
+  </header>
+
+  <!-- Now Playing -->
+  <main class="playlist-main">
+    <h1 style="color:#000;">Last Played</h1>
+
+    <!-- Song History (API version) -->
+    <div class="azuracast-box">
+      <ul id="song-history" ></ul>
+    </div>
+  </main>
+
+  <!-- Player -->
+  <footer class="player-footer">
+    <div class="azuracast-box">
+      <iframe 
+        src="https://radio.anherdfm.com/public/anherd_fm/embed?theme=light" 
+        class="azuracast-iframe">
+      </iframe>
+    </div>
+  </footer>
+
+  <!-- Script to Fetch History -->
+  <script>
+    let lastSongId = null;
+  
+    function updateSongHistory() {
+      fetch('https://radio.anherdfm.com/api/nowplaying')
+        .then(res => res.json())
+        .then(data => {
+          const now = data[0].now_playing.song;
+          const songId = now.id || `${now.title}-${now.artist}`;
+  
+          if (songId !== lastSongId) {
+            lastSongId = songId;
+  
+            const history = data[0].song_history.slice(0, 5);
+            const container = document.getElementById('song-history');
+            container.innerHTML = "";
+  
+            history.forEach(track => {
+              const li = document.createElement('li');
+              li.innerHTML = `
+                <img src="${track.song.art || '/images/default_cover.png'}" alt="cover">
+                <div class="track-info">
+                  <span class="track-title">${track.song.title}</span>
+                  <span class="track-artist">${track.song.artist}</span>
+                </div>
+              `;
+              container.appendChild(li);
+            });
+          }
+        })
+        .catch(err => {
+          const container = document.getElementById('song-history');
+          container.innerHTML = "<li>Error loading song history.</li>";
+        });
+    }
+  
+    // Initial load
+    updateSongHistory();
+  
+    // Check every 10 seconds
+    setInterval(updateSongHistory, 10000);
+  </script>
+</body>
+</html>

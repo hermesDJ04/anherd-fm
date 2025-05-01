@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/style.css">
+
+  <meta charset="UTF-8">
+  <title>Admin Panel - Anherd FM</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="admin">
+  <img src="/images/logo.png" alt="Anherd FM Logo" class="logo">
+  <h1>Admin Login</h1>
+
+  <form id="adminLoginForm">
+    <input type="password" id="adminPassword" placeholder="Admin Password" required><br><br>
+    <button type="submit">Login as Admin</button>
+  </form>
+
+  <div id="adminPanel" style="display:none;">
+    <h2>Add New User</h2>
+    <form id="addUserForm">
+      <input type="text" id="newUsername" placeholder="New Username" required><br><br>
+      <input type="password" id="newPassword" placeholder="New Password" required><br><br>
+      <input type="text" id="playlistLink" placeholder="/playlist.html" required><br><br>
+      <button type="submit">Add User</button>
+    </form>
+    <p id="addUserMessage"></p>
+  </div>
+
+  <script>
+    document.getElementById('adminLoginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const password = document.getElementById('adminPassword').value;
+
+      const response = await fetch('/admin-login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password })
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        document.getElementById('adminLoginForm').style.display = 'none';
+        document.getElementById('adminPanel').style.display = 'block';
+      } else {
+        alert('Incorrect admin password!');
+      }
+    });
+
+    document.getElementById('addUserForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('newUsername').value;
+      const password = document.getElementById('newPassword').value;
+      const playlist = document.getElementById('playlistLink').value;
+
+      const response = await fetch('/add-user', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password, playlist })
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        document.getElementById('addUserMessage').innerText = 'User added successfully!';
+      } else {
+        document.getElementById('addUserMessage').innerText = data.message;
+      }
+    });
+  </script>
+</body>
+</html>

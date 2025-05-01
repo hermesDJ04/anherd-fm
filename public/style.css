@@ -1,0 +1,505 @@
+/* Reset basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General body setup */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #111;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.nav-logo img {
+  width: 100px;
+}
+
+.nav-login button {
+  background: #fc7600;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: rgb(249, 209, 171);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.nav-login button:hover {
+  background: #ffffff;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  width: 100%;
+  background: url('/images/background.png') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 100px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* About Section */
+.about-section {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #1e1e1e;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-family: 'Audiowide', sans-serif;
+}
+
+.about-section p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #ccc;
+  font-family: 'Audiowide', sans-serif;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-family: 'Audiowide', sans-serif;
+}
+
+.contact-form {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input {
+  padding: 12px;
+  border: 1px solid #555;
+  background-color: #222;
+  color: white;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  padding: 12px;
+  background: #fc7600;
+  border: none;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-family: 'Audiowide', sans-serif;
+}
+
+.contact-form button:hover {
+  background: #ffffff;
+}
+
+/* Footer */
+.footer {
+  background-color: #000;
+  text-align: center;
+  padding: 30px 20px;
+  font-family: 'Audiowide', sans-serif;
+}
+
+.footer p {
+  margin-top: 10px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.social-icons {
+  margin-bottom: 10px;
+}
+
+.social-icons a img {
+  width: 30px;
+  margin: 0 10px;
+  transition: transform 0.3s;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.2);
+}
+
+/* Login Page */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/images/login.png');
+}
+
+.login-container {
+  background: #000000;
+  padding: 40px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.login-logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.login-container h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-family: 'Audiowide', sans-serif;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background: #222;
+  border: 1px solid #555;
+  border-radius: 5px;
+  color: white;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #fc7600;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: 'Audiowide', sans-serif;
+}
+
+.login-btn:hover {
+  background: #ffffff;
+}
+
+#message {
+  margin-top: 10px;
+  color: #fc7600;
+}
+
+/* Playlist Page */
+.playlist-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 100px;
+  background-image: url('/images/onair.png'); /* change the path to your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+.playlist-header {
+  text-align: center;
+  padding: 20px;
+  
+}
+
+
+.playlist-logo {
+  width: 150px;
+  margin-top: -100px;
+}
+
+.playlist-main {
+  flex: 1;
+  text-align: center;
+  margin: 40px 20px;
+}
+
+.playlist-main h1 {
+  font-size: 2.5rem;
+  margin: 30px 0 10px;
+  color: #000000;
+}
+
+.player-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #000000;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
+  margin-top: 40px;
+  padding-bottom: 30px;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 500px) {
+  .player-controls.horizontal {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .progress-container {
+    width: 100%;
+  }
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-section h2,
+  .contact-section h2,
+  .playlist-main h1 {
+    font-size: 2rem;
+  }
+
+  .player-footer {
+    padding: 8px;
+  }
+}
+
+.azuracast-box {
+  width: 90%;
+  max-width: 600px;
+  margin: 0px auto;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #000000;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  
+}
+
+.azuracast-iframe {
+  width: 100%;
+  border: none;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .playlist-logo {
+    width: 150px;
+    margin-top: -60px;
+  }
+
+  .playlist-main h1 {
+    font-size: 2rem;
+    margin-bottom: 50px;
+  }
+
+  .azuracast-box {
+    margin: 15px auto;
+    border-radius: 10px;
+  }
+
+  .player-footer {
+    padding: 12px 10px;
+  }
+}
+
+.playlist-header {
+  padding: 20px 0;
+}
+
+.playlist-logo {
+  width: 100px;
+}
+
+.playlist-main h1 {
+  font-size: 2.5rem;
+  margin: 30px 0 20px;
+  color: #ffe6cc;
+}
+
+.azuracast-box {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 600px;
+  width: 90%;
+  margin: 0 auto 40px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin-bottom: -100px;
+}
+
+#song-history li {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+#song-history img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.track-title {
+  font-weight: bold;
+  color: #fff;
+}
+
+.track-artist {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.player-footer {
+  padding-bottom: 30px;
+}
+
+.azuracast-iframe {
+  width: 100%;
+  min-height: 150px;
+  border: none;
+  border-radius: 12px;
+}
+#song-history {
+  margin-top: -10px;
+}
+@media (max-width: 500px) {
+  .playlist-main {
+    margin: 20px 10px;
+  }
+
+  .playlist-logo {
+    width: 90px;
+    margin-top: -40px;
+  }
+
+  #song-history li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #song-history img {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .azuracast-box {
+    padding: 10px;
+    width: 95%;
+  }
+
+  .player-footer {
+    padding: 15px 10px;
+  }
+
+  .azuracast-iframe {
+    min-height: 100px;
+  }
+
+  #song-history {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+}
+@media (max-width: 500px) {
+  .player-footer {
+    position: relative; /* Instead of fixed */
+    padding: 20px 10px 90px 10px; /* Add space for browser bar */
+  }
+
+  .azuracast-iframe {
+    min-height: 200px; /* More height to show full controls */
+  }
+
+  body {
+    padding-bottom: 100px; /* Prevent content from being hidden behind footer */
+  }
+}
+@media (max-width: 600px) {
+  .playlist-header {
+    margin-top: -20px;
+  }
+
+  .playlist-logo {
+    margin-top: -30px;
+    width: 80px;
+  }
+
+  .playlist-main h1 {
+    margin-top: 10px;
+    font-size: 1.8rem;
+  }
+
+  .playlist-main {
+    margin-top: -20px;
+  }
+}
+.explore-btn {
+  margin-top: 20px;
+  padding: 10px 436px;
+  font-size: 1.3rem;
+  font-family: 'Audiowide', sans-serif;
+  background: #fc7600;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.explore-btn:hover {
+  background: #e85f00;
+  transform: scale(1.05);
+}
