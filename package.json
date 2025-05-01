@@ -1,0 +1,23 @@
+{
+  "name": "anherd-fm",
+  "version": "1.0.0",
+  "main": "server.js",
+ "scripts": {
+  "start": "node server.js"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/hermesDJ04/anherd-fm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hermesDJ04/anherd-fm/issues"
+  },
+  "homepage": "https://github.com/hermesDJ04/anherd-fm#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
